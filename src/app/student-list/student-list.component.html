@@ -1,0 +1,57 @@
+<div class="row p-4">
+  <div class="col-lg-6 mt-3" style="margin: auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Age</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <th scope="row">{{ student.StudentId}}</th>
+          <td>{{ student.FirstName }}</td>
+          <td>{{ student.LastName }}</td>
+          <td>{{ student.Age }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-primary mr-3" (click)="onEdit(student.StudentId)"><i
+                class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="onDelete(student.StudentId)"><i
+                class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-6 mt-3" style="margin: auto;">
+    <div class="card-header bg-primary">
+      <h3>Student Detail</h3>
+    </div>
+    <div class="card p-2">
+      <form>
+      <div class="form-group col-12">
+        <label>Student First Name</label>
+        <input class="form-control" name="firstName" placeholder="firstName"
+          required="" type="text" ng-reflect-required="" ng-reflect-name="firstName" [(ngModel)]="student.FirstName">
+      </div>
+      <div class="form-group col-12">
+        <label>Student Last Name</label>
+        <input class="form-control" name="LastName" placeholder="LastName"
+          required="" type="text" ng-reflect-required="" ng-reflect-name="LastName"  [(ngModel)]="student.LastName">
+      </div>
+      <div class="form-group col-12">
+        <label>Student Age</label>
+        <input class="form-control" name="Age" placeholder="Age" required=""
+          type="text" ng-reflect-required="" ng-reflect-name="Age"  [(ngModel)]="student.Age" >
+      </div>
+      <div class=" col-12">
+        <button class="btn btn-primary" type="submit" (click)="onCreate()">Add</button>
+        <button class="btn btn-secondary ml-2" type="submit" (click)="onUpdate(student.StudentId)">Update</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row p-4">
+  <div class="col-lg-6 mt-3" style="margin: auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Qualification</th>
+          <th scope="col">Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of teachers">
+          <th scope="row">{{ teacher.TeacherId}}</th>
+          <td>{{ teacher.FirstName }}</td>
+          <td>{{ teacher.LastName }}</td>
+          <td>{{ teacher.Qualification }}</td>
+          <td>{{ teacher.Salary}}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-primary mr-3" (click)="onEdit(teacher.TeacherId)"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="onDelete(teacher.TeacherId)"><i
+                class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-6 mt-3" style="margin: auto;">
+    <div class="card-header bg-primary">
+      <h3>Teacher Detail</h3>
+    </div>
+    <div class="card p-2">
+      <form>
+        <div class="form-group col-12">
+          <label>First Name</label>
+          <input class="form-control " name="firstName" placeholder="First Name"
+            required="" type="text" ng-reflect-required="" ng-reflect-name="TeacherName" [(ngModel)]="teacher.FirstName">
+        </div>
+        <div class="form-group col-12">
+          <label>Last Name</label>
+          <input class="form-control " name="lastName" placeholder="Last Name"
+            required="" type="text" ng-reflect-required="" ng-reflect-name="lastName" [(ngModel)]="teacher.LastName">
+        </div>
+        <div class="form-group col-12">
+          <label>Qualification</label>
+          <input class="form-control " name="qualification"
+            placeholder="Qualification" required="" type="text" ng-reflect-required="" ng-reflect-name="qualification" [(ngModel)]="teacher.Qualification">
+        </div>
+        <div class="form-group col-12">
+          <label>Salary</label>
+          <input class="form-control " name="salary" placeholder="Salary" required=""
+            type="text" ng-reflect-required="" ng-reflect-name="salary" [(ngModel)]="teacher.Salary">
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" (click)="onCreate()">Add</button>
+          <button class="btn btn-secondary ml-2" type="button" (click)="onUpdate(teacher.TeacherId)">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
